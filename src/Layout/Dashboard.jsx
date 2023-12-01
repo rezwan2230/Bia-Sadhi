@@ -55,7 +55,7 @@ const Dashboard = () => {
 
                             <li className="hover:bg-slate-400  rounded my-3 font-semibold"><NavLink to='/dashboard/contactReq' className="flex items-center gap-2 p-2" ><MdOutlineContactPhone className="text-lg"></MdOutlineContactPhone>Contact Request</NavLink></li>
 
-                            <li className="hover:bg-slate-400  rounded my-3 font-semibold"><NavLink to='/dashboard/allUsers' className="flex items-center gap-2 p-2"><FaUsers className="text-lg"></FaUsers>All Users</NavLink></li>
+
 
                         </>
                             :

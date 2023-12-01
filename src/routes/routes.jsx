@@ -15,7 +15,6 @@ import Dashboard from "../Layout/Dashboard";
 import AdminHome from "../Pages/AdminHome/AdminHome";
 import ApprovePremium from "../Pages/ApprovePremium/ApprovePremium";
 import ContactRequest from "../Pages/ContactRequest/ContactRequest";
-import AllUsers from "../Pages/AllUsers/AllUsers";
 import ManageUsers from "../Pages/ManageUsers/ManageUsers";
 
 
@@ -93,10 +92,6 @@ export const router = createBrowserRouter([
         {
           path : 'contactReq',
           element : <ContactRequest></ContactRequest>
-        },
-        {
-          path : 'allUsers',
-          element : <AllUsers></AllUsers>
         }
       ]
     }
