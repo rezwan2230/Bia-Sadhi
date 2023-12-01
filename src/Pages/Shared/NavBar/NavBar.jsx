@@ -2,11 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import img from '../../../assets/logo.png'
 import useAuth from "../../../hooks/useAuth";
 import '../NavBar/NavBar.css'
-// import useAdmin from "../../../hooks/useAdmin";
+import useAdmin from "../../../hooks/useAdmin";
 const NavBar = () => {
 
     const { user, logOut } = useAuth()
-    // const [isAdmin] = useAdmin()
+    const [isAdmin] = useAdmin()
 
     const handleLogout = () => {
         logOut()
@@ -26,12 +26,14 @@ const NavBar = () => {
                         <NavLink to='/bioData' className=' px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Bio Data</NavLink>
                         <NavLink to='aboutUs' className=' px-2  md:text-lg rounded text-xl text-white hover:bg-slate-700'>About Us</NavLink>
                         <NavLink to='contactUs' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Contact Us</NavLink>
-                        {/* {
-                            user && isAdmin && <li><Link to='/dashboard/adminHome'>Dashboard</Link></li>
+                        {/* <Link to='/dashboard/adminHome' className="text-white">Dashboard</Link> */}
+                        {/* <Link to='/dashboard/viewBioData'>Dashbord</Link> */}
+                        {
+                            user && isAdmin && <NavLink to='/dashboard/adminHome' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Dashbord</NavLink>
                         }
                         {
-                            user && !isAdmin && <li><Link to='/dashboard/viewBioData'>Dashboard</Link></li>
-                        } */}
+                            user && !isAdmin && <NavLink to='/dashboard/viewBioData' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Dashbord</NavLink>
+                        }
 
 
                     </nav>

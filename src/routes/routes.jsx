@@ -56,8 +56,7 @@ export const router = createBrowserRouter([
 
     {
       path : 'dashboard',
-      // element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-      element : <Dashboard></Dashboard>,
+      element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children : [
 
         //Normal Users
@@ -82,23 +81,19 @@ export const router = createBrowserRouter([
         //Admin access Only
         {
           path : 'adminHome',
-          // element : <AdminRoute><AdminHome></AdminHome></AdminRoute>
-          element : <AdminHome></AdminHome>
+          element : <AdminRoute><AdminHome></AdminHome></AdminRoute>
         },
         {
           path : 'manageUsers',
-          // element : <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
-          element : <ManageUsers></ManageUsers>
+          element : <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
         },
         {
           path : 'approvePremium',
-          // element : <AdminRoute><ApprovePremium></ApprovePremium></AdminRoute>
-          element : <ApprovePremium></ApprovePremium>
+          element : <AdminRoute><ApprovePremium></ApprovePremium></AdminRoute>
         },
         {
           path : 'contactReq',
-          // element : <AdminRoute><ContactRequest></ContactRequest></AdminRoute>
-          element : <ContactRequest></ContactRequest>
+          element : <AdminRoute><ContactRequest></ContactRequest></AdminRoute>
         }
       ]
     }
