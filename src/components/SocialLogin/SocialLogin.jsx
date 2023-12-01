@@ -18,8 +18,8 @@ const SocialLogin = () => {
             }
             axiosPublic.post('/users', userInfo)
             .then(res=>{
-                console.log(res.data);
                 navigate('/')
+                console.log(res.data);
             })
         })
         .catch(error=>{console.log(error.message)})

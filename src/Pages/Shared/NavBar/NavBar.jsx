@@ -2,13 +2,15 @@ import { Link, NavLink } from "react-router-dom";
 import img from '../../../assets/logo.png'
 import useAuth from "../../../hooks/useAuth";
 import '../NavBar/NavBar.css'
+// import useAdmin from "../../../hooks/useAdmin";
 const NavBar = () => {
 
-    const { user, logOut} = useAuth()
+    const { user, logOut } = useAuth()
+    // const [isAdmin] = useAdmin()
 
     const handleLogout = () => {
         logOut()
-            .then(() => {})
+            .then(() => { })
             .catch(error => { console.log(error.message); })
     }
 
@@ -24,9 +26,12 @@ const NavBar = () => {
                         <NavLink to='/bioData' className=' px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Bio Data</NavLink>
                         <NavLink to='aboutUs' className=' px-2  md:text-lg rounded text-xl text-white hover:bg-slate-700'>About Us</NavLink>
                         <NavLink to='contactUs' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Contact Us</NavLink>
-                        {
-                            user && <Link to='' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Dashboard</Link>
+                        {/* {
+                            user && isAdmin && <li><Link to='/dashboard/adminHome'>Dashboard</Link></li>
                         }
+                        {
+                            user && !isAdmin && <li><Link to='/dashboard/viewBioData'>Dashboard</Link></li>
+                        } */}
 
 
                     </nav>
@@ -34,8 +39,8 @@ const NavBar = () => {
                         <div className="navbar-end flex text-white">
                             {
                                 user?.email ? <>
-                                    <div className="flex justify-center items-center gap-4 md:gap-0"><div className="lg:font-semibold md:font-normal lg:text-lg md:mr-1 lg:mr-3 hidden md:block">{user?.displayName}</div> <div><img className="w-10 h-10 md:h-9 md:w-9 lg:w-10 lg:h-10 rounded-full  md:mr-1 lg:mr-5 hidden md:block"src={user.photoURL} alt="" /></div></div>
-                                    <button onClick={handleLogout} className="button">Logout </button>   
+                                    <div className="flex justify-center items-center gap-4 md:gap-0"><div className="lg:font-semibold md:font-normal lg:text-lg md:mr-1 lg:mr-3 hidden md:block">{user?.displayName}</div> <div><img className="w-10 h-10 md:h-9 md:w-9 lg:w-10 lg:h-10 rounded-full  md:mr-1 lg:mr-5 hidden md:block" src={user.photoURL} alt="" /></div></div>
+                                    <button onClick={handleLogout} className="button">Logout </button>
                                 </>
                                     :
                                     <><Link className="button" to='/login'>Login</Link></>

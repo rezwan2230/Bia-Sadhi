@@ -17,7 +17,6 @@ const ManageUsers = () => {
         }
     })
 
-
     const handleMakeAdmin = (user) => {
         console.log(user);
         axiosSecure.patch(`users/admin/${user._id}`)

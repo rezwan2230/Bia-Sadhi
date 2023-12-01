@@ -16,6 +16,8 @@ import AdminHome from "../Pages/AdminHome/AdminHome";
 import ApprovePremium from "../Pages/ApprovePremium/ApprovePremium";
 import ContactRequest from "../Pages/ContactRequest/ContactRequest";
 import ManageUsers from "../Pages/ManageUsers/ManageUsers";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
@@ -54,6 +56,7 @@ export const router = createBrowserRouter([
 
     {
       path : 'dashboard',
+      // element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       element : <Dashboard></Dashboard>,
       children : [
 
@@ -79,18 +82,22 @@ export const router = createBrowserRouter([
         //Admin access Only
         {
           path : 'adminHome',
+          // element : <AdminRoute><AdminHome></AdminHome></AdminRoute>
           element : <AdminHome></AdminHome>
         },
         {
           path : 'manageUsers',
+          // element : <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
           element : <ManageUsers></ManageUsers>
         },
         {
           path : 'approvePremium',
+          // element : <AdminRoute><ApprovePremium></ApprovePremium></AdminRoute>
           element : <ApprovePremium></ApprovePremium>
         },
         {
           path : 'contactReq',
+          // element : <AdminRoute><ContactRequest></ContactRequest></AdminRoute>
           element : <ContactRequest></ContactRequest>
         }
       ]

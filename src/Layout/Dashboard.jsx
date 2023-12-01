@@ -4,21 +4,18 @@ import { GiSelfLove } from "react-icons/gi";
 import { FaStreetView } from "react-icons/fa6";
 import { MdModeEdit } from "react-icons/md";
 import { LuGitPullRequestClosed } from "react-icons/lu";
-import { FaUsers } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import { RiLogoutCircleRFill } from "react-icons/ri";
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { MdWorkspacePremium } from "react-icons/md";
 import { MdOutlineContactPhone } from "react-icons/md";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
     const {user, logOut} = useAuth()
     const navigate = useNavigate()
 
-    // const [cart] = useCart()
-
-    //TODO : get Admin value from the database.
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
 
     const handleLogout = () => {
         logOut()
@@ -27,7 +24,6 @@ const Dashboard = () => {
         
         navigate('/')
     }
-
 
     return (
         <div className="flex">
