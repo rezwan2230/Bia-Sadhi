@@ -12,6 +12,11 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import SignUp from "../Pages/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard";
+import AdminHome from "../Pages/AdminHome/AdminHome";
+import ApprovePremium from "../Pages/ApprovePremium/ApprovePremium";
+import ContactRequest from "../Pages/ContactRequest/ContactRequest";
+import AllUsers from "../Pages/AllUsers/AllUsers";
+import ManageUsers from "../Pages/ManageUsers/ManageUsers";
 
 
 export const router = createBrowserRouter([
@@ -52,6 +57,8 @@ export const router = createBrowserRouter([
       path : 'dashboard',
       element : <Dashboard></Dashboard>,
       children : [
+
+        //Normal Users
         {
           path : 'viewBioData',
           element : <BioData></BioData>
@@ -67,15 +74,30 @@ export const router = createBrowserRouter([
         {
           path : 'favourites',
           element : <FavouriteBioData></FavouriteBioData>
+        },
+
+
+        //Admin access Only
+        {
+          path : 'adminHome',
+          element : <AdminHome></AdminHome>
+        },
+        {
+          path : 'manageUsers',
+          element : <ManageUsers></ManageUsers>
+        },
+        {
+          path : 'approvePremium',
+          element : <ApprovePremium></ApprovePremium>
+        },
+        {
+          path : 'contactReq',
+          element : <ContactRequest></ContactRequest>
+        },
+        {
+          path : 'allUsers',
+          element : <AllUsers></AllUsers>
         }
       ]
     }
-
-
-
-
-
-
-
-
   ]);
