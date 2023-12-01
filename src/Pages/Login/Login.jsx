@@ -33,10 +33,9 @@ const Login = () => {
                                 </div>
 
                                 <div className="text-center">
-                                    {/* <div className="mt-5">
+                                    <div className="mt-5">
                                         <p className=" flex justify-center items-center "><span className="border-1 border-black w-[20px] mr-3"><hr/></span>Login with social accounts <span className="border-1 w-[20px] ml-3"><hr /></span></p>
-                                    </div> */}
-
+                                    </div>
                                     <div className="flex justify-center items-center gap-6 mt-2 text-black">
                                         <SocialLogin></SocialLogin>
                                     </div>  
