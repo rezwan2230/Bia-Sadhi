@@ -29,15 +29,15 @@ const Dashboard = () => {
         <div className="flex">
 
             {/*Dashboard  Side Bar */}
-            <div className="h-[100vh] p-3 space-y-2 w-[300px] dark:bg-gray-900 dark:text-gray-100  shadow-lg pt-8">
+            <div className="max-h-full lg:h-[100vh] p-3 space-y-2 w-[300px] dark:bg-gray-900 dark:text-gray-100  shadow-lg pt-8">
                 <ul className="menu p-5">
                     <div className="flex items-center p-2 space-x-4">
                         <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full dark:bg-gray-500" />
                         <div>
                             <h2 className="text-lg font-semibold">{user?.displayName}</h2>
-                            <span className="flex items-center space-x-1">
+                            {/* <span className="flex items-center space-x-1">
                                 <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">View profile</a>
-                            </span>
+                            </span> */}
                         </div>
                     </div>
 

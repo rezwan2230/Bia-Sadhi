@@ -26,8 +26,7 @@ const NavBar = () => {
                         <NavLink to='/bioData' className=' px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Bio Data</NavLink>
                         <NavLink to='aboutUs' className=' px-2  md:text-lg rounded text-xl text-white hover:bg-slate-700'>About Us</NavLink>
                         <NavLink to='contactUs' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Contact Us</NavLink>
-                        {/* <Link to='/dashboard/adminHome' className="text-white">Dashboard</Link> */}
-                        {/* <Link to='/dashboard/viewBioData'>Dashbord</Link> */}
+                     
                         {
                             user && isAdmin && <NavLink to='/dashboard/adminHome' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Dashbord</NavLink>
                         }

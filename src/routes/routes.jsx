@@ -18,6 +18,7 @@ import ContactRequest from "../Pages/ContactRequest/ContactRequest";
 import ManageUsers from "../Pages/ManageUsers/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import CreateBioData from "../Pages/CreateBioData/CreateBioData";
 
 
 export const router = createBrowserRouter([
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
         {
           path : 'viewBioData',
           element : <BioData></BioData>
+        },
+        {
+          path : 'createBioData',
+          element : <CreateBioData></CreateBioData>
         },
         {
           path : 'editBioData',
