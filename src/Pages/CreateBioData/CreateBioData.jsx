@@ -3,12 +3,14 @@ import { useForm } from "react-hook-form"
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useUserBiodata from "../../hooks/useUserBiodata";
 
 
 const CreateBioData = () => {
 
     const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
+    const [, fetch] = useUserBiodata()
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
 
@@ -39,7 +41,7 @@ const CreateBioData = () => {
 
         const res = await axiosPublic.post(`/biodata/${user.email}`, bioData)
         if (res.data.insertedId) {
-            refetch();
+            fetch()
             reset()
             Swal.fire({
                 position: "center",
@@ -56,13 +58,13 @@ const CreateBioData = () => {
         <div>
 
             <div>
-                <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col md:flex-row h-[100vh]">
 
                     <div className="flex-1 mt-6">
                         <section >
                             <div className="">
                                 <div
-                                    className="first-letter:w-full px-0 py-10  mx-auto mt-4 mb-0  bg-transparent border-0 border-gray-200 rounded-lg md:bg-white md:border sm:w-10/12 lg:w-8/12   md:px-6 sm:mt-8 sm:mb-5"
+                                    className="first-letter:w-full px-0 py-10  mx-auto mt-4 mb-0  bg-transparent border-0 border-gray-200 rounded-lg md:bg-white md:border sm:w-10/12 lg:w-8/12   md:px-6 sm:mt-8 sm:mb-5 "
                                 >
                                     <h1 className="mb-4 text-3xl font-semibold text-left text-gray-800 sm:text-center py-4">Create Your Bio-Data</h1>
 

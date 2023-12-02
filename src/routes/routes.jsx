@@ -77,8 +77,8 @@ export const router = createBrowserRouter([
         },
         {
           path : 'editSingleBioData/:id',
-          element : <EditSingleBiodata></EditSingleBiodata> ,
-          loader : ({params})=>fetch(`http://localhost:5000/${params.id}`)
+          element : <EditSingleBiodata></EditSingleBiodata>,
+          loader : ({params})=>fetch(`http://localhost:5000/biodatas/${params.id}`)
         },
         {
           path : 'contactRequest',

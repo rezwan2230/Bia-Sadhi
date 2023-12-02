@@ -35,7 +35,7 @@ const BioData = () => {
                                         
                                     </div>
                                 </div>
-                                <div className="flex-1 mt-1">
+                                <div className="flex-1 mt-12">
                                     <div className='ml-10'>
                                         <img className='h-52 w-52 rounded-sm' src={biodata.photoURL} alt="" />
                                     </div>

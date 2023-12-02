@@ -23,18 +23,22 @@ const EditBioData = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                refetch()
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+                axiosPublic.delete(`/biodata/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your biodata has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
             }
-            axiosPublic.delete(`/biodata/${id}`)
         });
     }
 
-    
+
     return (
         <div className="h-[100vh]">
             <div>
