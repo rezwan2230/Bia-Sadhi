@@ -19,6 +19,8 @@ import ManageUsers from "../Pages/ManageUsers/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import CreateBioData from "../Pages/CreateBioData/CreateBioData";
+import AllBioData from "../Pages/AllBioData/AllBioData";
+import EditSingleBiodata from "../Pages/EditSingleBiodata/EditSingleBiodata";
 
 
 export const router = createBrowserRouter([
@@ -33,8 +35,8 @@ export const router = createBrowserRouter([
             element : <Home></Home>
         },
         {
-            path : 'bioData',
-            element : <BioData></BioData>
+            path : 'allBioData',
+            element : <AllBioData></AllBioData>
         },
         {
             path : 'aboutUs',
@@ -72,6 +74,11 @@ export const router = createBrowserRouter([
         {
           path : 'editBioData',
           element : <EditBioData></EditBioData> 
+        },
+        {
+          path : 'editSingleBioData/:id',
+          element : <EditSingleBiodata></EditSingleBiodata> ,
+          loader : ({params})=>fetch(`http://localhost:5000/${params.id}`)
         },
         {
           path : 'contactRequest',

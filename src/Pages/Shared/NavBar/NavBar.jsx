@@ -16,14 +16,14 @@ const NavBar = () => {
 
     return (
         <div className="max-w-screen-xl mx-auto fixed z-10 bg-opacity-30 bg-black md:w-full">
-            <header className="text-gray-600 body-font">
+            <header className="text-gray-600 body-font">    
                 <div className="lg:container md:w-full mx-auto flex p-5 flex-col md:flex-row md-px-0 items-center">
                     <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
                         <span className="ml-3 text-xl"><img className="lg:h-10 md:h-7 text-white" src={img} alt="" /></span>
                     </a>
                     <nav className="md:ml-auto md:mr-auto flex flex-wrap lg:gap-5 md:gap-2  items-center text-base justify-center ">
                         <NavLink to='/' className='px-2 rounded md:text-lg text-xl text-white hover:bg-slate-700'>Home</NavLink>
-                        <NavLink to='/bioData' className=' px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Bio Data</NavLink>
+                        <NavLink to='allBioData' className=' px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Bio Data</NavLink>
                         <NavLink to='aboutUs' className=' px-2  md:text-lg rounded text-xl text-white hover:bg-slate-700'>About Us</NavLink>
                         <NavLink to='contactUs' className='px-2 md:text-lg rounded text-xl text-white hover:bg-slate-700'>Contact Us</NavLink>
                      

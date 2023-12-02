@@ -1,7 +1,7 @@
 
 const FavouriteBioData = () => {
     return (
-        <div>
+        <div className="h-[100vh]">
             <h2>Favourites Biodata</h2>
         </div>
     );

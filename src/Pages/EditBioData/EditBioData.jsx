@@ -1,146 +1,83 @@
 
-// // import SignUpImg from '../../assets/SignUpImg.png'
-// import { Button, Input} from "rizzui";
-
 import { Link } from "react-router-dom";
 import '../../Pages/Shared/NavBar/NavBar.css'
-
-// import { useForm } from "react-hook-form"
-// import useAuth from '../../hooks/useAuth';
-// import useAxiosPublic from '../../hooks/useAxiosPublic';
-// // import Swal from 'sweetalert2';
-
-
-// const EditBioData = () => {
-//     const {user} = useAuth()
-//     const axiosPublic = useAxiosPublic()
-
-//     // const { createUser, updateUserProfile } = useAuth()
-//     // const navigate = useNavigate()
-//     const { register, handleSubmit, reset, formState: { errors } } = useForm()
-
-//     const onSubmit = async (data) => {
-//         console.log(data)
-
-//         const bioData = {
-//             email : user.email,
-//             name : data.name,
-//             age : parseInt(data.Age),
-//             dateofbirth : data.dateofbirth,
-//             gender : data.gender,
-//             height : data.height,
-//             weight : data.weight,
-//             occupation : data.occupation,
-//             photoURL : data.photoURL,
-//             division : data.division,
-//             FathersName : data.FathersName,
-//             mothersName : data.mothersName,
-//             race : data.race,
-//         }
-
-//         const res = axiosPublic.post(`/biodata/${user.email}`, bioData)
-//         if(res.data){
-//            console.log('add hoice'); 
-//         }
-
-//         console.log(bioData);
-        
-//     }
-
-//     return (
-//         <div>
-
-//             <div>
-//                 <div className="flex flex-col md:flex-row mt-6 ">
-
-//                     <div className="flex-1">
-//                         <section >
-//                             <div className="">
-//                                 <div
-//                                     className="first-letter:w-full px-0 pt-5 pb-10 mx-auto mt-4 mb-0 space-y-4 bg-transparent border-0 border-gray-200 rounded-lg md:bg-white md:border sm:w-10/12 lg:w-8/12   md:px-6 sm:mt-8 sm:mb-5"
-//                                 >
-//                                     <h1 className="mb-6 text-3xl font-semibold text-left text-gray-800 sm:text-center py-4">Create Your Bio-Data</h1>
-
-//                                     <form onSubmit={handleSubmit(onSubmit)} className="pb-1 space-y-4">
-
-
-//                                         <div className='grid grid-cols-2 gap-5'>
-
-//                                             <Input className='text-2xl font-semibold' {...register("name", { required: true })} label="Name" type='text' placeholder="Enter your name" variant="active" required />
-
-//                                             <div>
-//                                                 <label className="text-black text-sm font-semibold mb-20">Gender</label>
-//                                                 <select {...register("gender", { required: true })} name="brandname" id="" className="block w-full text-gray-700 bg-white border border-black rounded-md dark:bg-gray-800  focus:ring-opacity-40  focus:outline-none" required>
-//                                                     <option className='text-sm font-semibold' value="female">Male</option>
-//                                                     <option className='text-sm font-semibold' value="female">Female</option>
-//                                                 </select>
-//                                             </div>
-
-
-//                                             <Input className='text-2xl font-semibold' {...register("photoURL", { required: true })} label="Photo URL" type='text' placeholder="Enter your Photo URL" variant="active" required />
-
-//                                             <Input className='text-2xl font-semibold' {...register("dateofbirth", { required: true })} label="Date of birth" type='date' placeholder="Enter your date of birth" variant="active" required />
-
-//                                             <Input className='text-2xl font-semibold' {...register("height", { required: true })} label="Height" type='text' placeholder="Enter your height : 5.7" variant="active" required />
-
-//                                             <Input className='text-2xl font-semibold' {...register("weight", { required: true })} label="weight" type='number' placeholder="Enter your weight : 58 kg" variant="active" required />
-
-//                                             <Input className='text-2xl font-semibold' {...register("Age", { required: true })} label="Age" type='number' placeholder="Enter your Age" variant="active" required />
-
-//                                             <Input className='text-2xl font-semibold' {...register("occupation", { required: true })} label="occupation" type='text' placeholder="Enter your Occupation" variant="active" required />
-
-//                                             <Input className='text-2xl font-semibold' {...register("race", { required: true })} label="Race" type='text' placeholder="Enter your Race" variant="active" required />
-
-//                                             <Input className='text-2xl font-semibold' {...register("FathersName")} label="Father's Name" type='text' placeholder="Enter your Father's Name" variant="active" />
-
-//                                             <Input className='text-2xl font-semibold' {...register("mothersName")} label="Mother's Name" type='text' placeholder="Enter your Mother's Name" variant="active" />
-
-//                                             <div>
-//                                                 <label className="text-black text-sm font-semibold mb-20">Division</label>
-//                                                 <select {...register("division", { required: true })}  id="" className="block w-full text-gray-700 bg-white border border-black rounded-md dark:bg-gray-800  focus:ring-opacity-40  focus:outline-none" required>
-//                                                     <option className='text-sm font-semibold' value="dhaka">Dhaka</option>
-//                                                     <option className='text-sm font-semibold' value="chattagram">Chattagram</option>
-//                                                     <option className='text-sm font-semibold' value="rangpur">Rangpur</option>
-//                                                     <option className='text-sm font-semibold' value="rajshahi">Rajshahi</option>
-//                                                     <option className='text-sm font-semibold' value="khulna">Khunla</option>
-//                                                     <option className='text-sm font-semibold' value="barishal">Barishal</option>
-//                                                     <option className='text-sm font-semibold' value="sylhet">Sylhet</option>
-//                                                     <option className='text-sm font-semibold' value="maymansgingh">Maymanshingh</option>
-//                                                 </select>
-//                                             </div>
-
-//                                         </div>
-
-//                                         <div className="flex items-center justify-between">
-//                                             <Button type='submit' className='text-white mx-auto bg-slate-700 px-5 mt-2 ' size="sm">Create Biodata</Button>
-//                                         </div>
-
-//                                     </form>
-//                                 </div>
-//                             </div>
-//                         </section>
-//                     </div>
-
-
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default EditBioData;
-
-
-
+import useUserBiodata from "../../hooks/useUserBiodata";
+import { MdDelete, MdModeEdit } from "react-icons/md";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const EditBioData = () => {
-    return (
-        <div>
+    const [biodatas, refetch] = useUserBiodata()
+    const axiosPublic = useAxiosPublic()
 
+    const handleDelete = (id) => {
+        console.log(id);
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                refetch()
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+            axiosPublic.delete(`/biodata/${id}`)
+        });
+    }
+
+    
+    return (
+        <div className="h-[100vh]">
             <div>
-                <Link className="button" to='/dashboard/createBioData'>Create Bio-Data</Link>
+                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+
+                    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+
+                        {
+                            biodatas.map(biodata => <div key={biodata._id}>
+                                <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                                    <img
+                                        className="object-cover w-full h-56 md:h-64 xl:h-80"
+                                        src={biodata.photoURL} alt="Person"
+                                    />
+                                    <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                                        <div className="mb-1 text-lg text-gray-100 flex justify-center items-center gap-7">
+                                            <button onClick={() => handleDelete(biodata._id)}
+                                                className='p-2 text-black bg-white rounded-full btn-outline hover:bg-red-400'>
+                                                <MdDelete className='text-3xl'></MdDelete>
+                                            </button>
+                                            <Link to={`/dashboard/editSingleBioData/${biodata._id}`}>
+                                                <button
+                                                    className='p-2 text-black bg-white rounded-full btn-outline hover:bg-red-400'>
+                                                    <MdModeEdit className='text-3xl'></MdModeEdit>
+                                                </button>
+                                            </Link>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>)
+                        }
+
+                    </div>
+                </div>
             </div>
-            
+
+
+            <div className="text-center">
+                <Link className="button text-center" to='/dashboard/createBioData'>Create Bio-Data</Link>
+            </div>
+
         </div>
     );
 };
