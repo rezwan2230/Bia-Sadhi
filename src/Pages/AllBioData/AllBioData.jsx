@@ -133,8 +133,7 @@ const AllBioData = () => {
             </div>
 
             <div className='text-center'>
-                <h2>Pagination</h2>
-                <h2>Current Page : {currentPage}</h2>
+                
                 <button className="button mr-5" onClick={handlePreviousPage}>Prev</button>
                 {
                     pages.map(page => <button
@@ -143,8 +142,8 @@ const AllBioData = () => {
                         key={page}>{page}
                     </button>)
                 }
-                <button className="button ml-4" onClick={handleNextPage}>Next</button>
 
+                <button className="button ml-4" onClick={handleNextPage}>Next</button>
 
                 <select value={itemsPerPage} name="" onChange={handleItemsPerPage} id="" className=" ml-5 w-16 px-4 py-2 mt-8 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
                     <option value="5">5</option>

@@ -21,6 +21,8 @@ import AdminRoute from "./AdminRoute";
 import CreateBioData from "../Pages/CreateBioData/CreateBioData";
 import AllBioData from "../Pages/AllBioData/AllBioData";
 import EditSingleBiodata from "../Pages/EditSingleBiodata/EditSingleBiodata";
+import SingleBiodataPage from "../Pages/SingleBiodataPage/SingleBiodataPage";
+import Payment from "../Pages/Payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -46,6 +48,16 @@ export const router = createBrowserRouter([
         {
             path : 'contactUs',
             element : <ContactUs></ContactUs>
+        },
+        {
+            path : 'singleBioData/:id',
+            element : <PrivateRoute><SingleBiodataPage></SingleBiodataPage></PrivateRoute>,
+            loader : ({params})=>fetch(`http://localhost:5000/biodatas/${params.id}`)
+        },
+        {
+          path : 'payment',
+          element : <Payment></Payment>
+
         },
         {
             path : '/login',
