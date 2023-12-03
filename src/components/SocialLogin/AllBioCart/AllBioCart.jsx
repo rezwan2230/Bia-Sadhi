@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
-import image from '../../../assets/banner3.jpg'
 import premium from '../../../assets/medal.png'
 
 const AllBioCart = ({ biodata }) => {
     const { _id, name, age, dateofbirth, gender, height, weight, occupation, photoURL, FathersName, mothersName, race, ExpectedAge, ExpectedHeight, ExpectedWeight, presentDivision, permanentDivision, mobileNo, biodataID } = biodata;
+
+    const handleFavourite = ()=>{
+        
+    }
     return (
         <div>
             <div className="relative mx-5 lg:w-[360px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-5">
@@ -17,7 +20,7 @@ const AllBioCart = ({ biodata }) => {
                 </div>
 
                 <div className="p-5 pt-2">
-                    <p className="-mt-16 absolute max-w-fit px-3 py-1 text-lg font-semibold tracki bg-white bg-opacity-75 rounded ">Rezwan</p>
+                    <p className="-mt-16 absolute max-w-fit px-3 py-1 text-lg font-semibold tracki bg-white bg-opacity-75 rounded ">{name}</p>
                     <div className='flex items-center justify-between '>
                         <div className="flex items-center mt-2">
                             <div className='mt-2 text-lg font-semibold'>
@@ -47,7 +50,7 @@ const AllBioCart = ({ biodata }) => {
                         <div className='flex'>
                             <button //onClick={handleRequest} 
                                 className="inline-flex disabled items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                Request
+                                favourite
                             </button>
                         </div>
                         <div className='flex'>
