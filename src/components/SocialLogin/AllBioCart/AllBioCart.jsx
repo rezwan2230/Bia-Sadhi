@@ -1,12 +1,36 @@
 import { Link } from 'react-router-dom';
 import premium from '../../../assets/medal.png'
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const AllBioCart = ({ biodata }) => {
     const { _id, name, age, dateofbirth, gender, height, weight, occupation, photoURL, FathersName, mothersName, race, ExpectedAge, ExpectedHeight, ExpectedWeight, presentDivision, permanentDivision, mobileNo, biodataID } = biodata;
 
-    const handleFavourite = ()=>{
-        
+    const axiosPublic = useAxiosPublic()
+
+    const handleFavourite = async () => {
+        const favouriteProfile = {
+            name : name,
+            biodataID : biodataID,
+            permanentDivision : permanentDivision,
+            Occupation : occupation
+        }
+        console.log(favouriteProfile);
+
+        const res = await axiosPublic.post('/addtofavourite', favouriteProfile)
+        if (res.data.insertedId) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: `${name} add to Favourites`,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     }
+
+
+
     return (
         <div>
             <div className="relative mx-5 lg:w-[360px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-5">
@@ -26,14 +50,14 @@ const AllBioCart = ({ biodata }) => {
                             <div className='mt-2 text-lg font-semibold'>
                                 <p>Occupation : {occupation}</p>
                             </div>
-                            
+
                         </div>
                         <div className="flex items-center mt-2">
                             <div className='mt-2 text-lg font-semibold'>
                                 <p>Age : {age}</p>
                             </div>
                         </div>
-                       
+
                     </div>
 
 
@@ -48,7 +72,7 @@ const AllBioCart = ({ biodata }) => {
 
                     <div className='flex justify-center gap-5 py-2'>
                         <div className='flex'>
-                            <button //onClick={handleRequest} 
+                            <button onClick={handleFavourite}
                                 className="inline-flex disabled items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 favourite
                             </button>
