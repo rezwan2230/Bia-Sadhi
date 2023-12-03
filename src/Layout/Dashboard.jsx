@@ -37,9 +37,7 @@ const Dashboard = () => {
                         <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full dark:bg-gray-500" />
                         <div>
                             <h2 className="text-lg font-semibold">{user?.displayName}</h2>
-                            {/* <span className="flex items-center space-x-1">
-                                <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">View profile</a>
-                            </span> */}
+                            
                         </div>
                     </div>
 

@@ -2,21 +2,22 @@ import { Link } from 'react-router-dom';
 import premium from '../../../assets/medal.png'
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hooks/useAuth';
 
 const AllBioCart = ({ biodata }) => {
+    const {user} = useAuth()
     const { _id, name, age, dateofbirth, gender, height, weight, occupation, photoURL, FathersName, mothersName, race, ExpectedAge, ExpectedHeight, ExpectedWeight, presentDivision, permanentDivision, mobileNo, biodataID } = biodata;
 
     const axiosPublic = useAxiosPublic()
 
     const handleFavourite = async () => {
         const favouriteProfile = {
+            email : user.email,
             name : name,
             biodataID : biodataID,
             permanentDivision : permanentDivision,
             Occupation : occupation
         }
-        console.log(favouriteProfile);
-
         const res = await axiosPublic.post('/addtofavourite', favouriteProfile)
         if (res.data.insertedId) {
             Swal.fire({

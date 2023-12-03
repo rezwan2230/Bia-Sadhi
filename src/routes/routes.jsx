@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
             element : <Home></Home>
         },
         {
-            path : 'allBioData',
+            path : 'allBioData',  
             element : <AllBioData></AllBioData>,
             loader : ()=>fetch('http://localhost:5000/biodatas')
         },
