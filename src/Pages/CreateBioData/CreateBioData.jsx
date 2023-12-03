@@ -10,7 +10,7 @@ const CreateBioData = () => {
 
     const { user } = useAuth()
     const axiosPublic = useAxiosPublic()
-    const [, fetch] = useUserBiodata()
+    const [, refetch] = useUserBiodata()
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
 
@@ -22,7 +22,7 @@ const CreateBioData = () => {
             name: data.name,
             age: parseInt(data.Age),
             dateofbirth: data.dateofbirth,
-            gender: data.gender,
+            gender: data.gendar,
             height: data.height,
             weight: data.weight,
             occupation: data.occupation,
@@ -33,7 +33,7 @@ const CreateBioData = () => {
             ExpectedAge: parseInt(data.partnerAge),
             ExpectedHeight: data.partnerHeight,
             ExpectedWeight: data.partnerWeight,
-            presentDivision: data.presentDivision,
+            presentDivision: data.presentdivision,
             permanentDivision: data.permanentDivision,
             mobileNo: data.mobileNo
         }
@@ -41,8 +41,8 @@ const CreateBioData = () => {
 
         const res = await axiosPublic.post(`/biodata/${user.email}`, bioData)
         if (res.data.insertedId) {
-            fetch()
-            reset()
+            refetch()
+            // reset()
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -77,8 +77,8 @@ const CreateBioData = () => {
 
                                             <div>
                                                 <label className="text-black text-sm font-semibold mb-20">Gender</label>
-                                                <select {...register("gender", { required: true })} name="brandname" id="" className="block w-full text-gray-700 bg-white border border-black rounded-md dark:bg-gray-800  focus:ring-opacity-40  focus:outline-none" required>
-                                                    <option className='text-sm font-semibold' value="female">Male</option>
+                                                <select {...register("gendar", { required: true })} name="brandname" id="" className="block w-full text-gray-700 bg-white border border-black rounded-md dark:bg-gray-800  focus:ring-opacity-40  focus:outline-none" required>
+                                                    <option className='text-sm font-semibold' value="male">Male</option>
                                                     <option className='text-sm font-semibold' value="female">Female</option>
                                                 </select>
                                             </div>
@@ -108,7 +108,7 @@ const CreateBioData = () => {
 
                                             <div>
                                                 <label className="text-black text-sm font-semibold mb-20">Present Division</label>
-                                                <select {...register("presentivision", { required: true })} id="" className="block w-full text-gray-700 bg-white border border-black rounded-md dark:bg-gray-800  focus:ring-opacity-40  focus:outline-none" required>
+                                                <select {...register("presentdivision", { required: true })} id="" className="block w-full text-gray-700 bg-white border border-black rounded-md dark:bg-gray-800  focus:ring-opacity-40  focus:outline-none" required>
                                                     <option className='text-sm font-semibold' value="dhaka">Dhaka</option>
                                                     <option className='text-sm font-semibold' value="chattagram">Chattagram</option>
                                                     <option className='text-sm font-semibold' value="rangpur">Rangpur</option>

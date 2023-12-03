@@ -36,7 +36,8 @@ export const router = createBrowserRouter([
         },
         {
             path : 'allBioData',
-            element : <AllBioData></AllBioData>
+            element : <AllBioData></AllBioData>,
+            loader : ()=>fetch('http://localhost:5000/biodatas')
         },
         {
             path : 'aboutUs',
@@ -56,7 +57,6 @@ export const router = createBrowserRouter([
         }
       ]
     },
-
     {
       path : 'dashboard',
       element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
