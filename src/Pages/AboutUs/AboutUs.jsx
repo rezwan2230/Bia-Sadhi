@@ -1,3 +1,4 @@
+import Testimonial from "../../components/SocialLogin/Testimonial/Testimonial";
 
 const AboutUs = () => {
     return (
@@ -38,6 +39,10 @@ const AboutUs = () => {
                     </div>
                 </div>
             </section>
+
+            <div>
+                <Testimonial></Testimonial>
+            </div>
         </div>
 
 
