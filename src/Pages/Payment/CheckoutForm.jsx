@@ -76,7 +76,8 @@ const CheckoutForm = ({bioData}) => {
 
                 // now save the payment in the database
                 const payment = {
-                    name : bioData?.name,
+                    partnerName : bioData?.name,
+                    userName : user.displayName,
                     biodataId : bioData.biodataID,
                     partnerMobileNo : bioData.mobileNo,
                     partnerEmail : bioData.email,

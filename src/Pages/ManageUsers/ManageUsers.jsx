@@ -35,23 +35,7 @@ const ManageUsers = () => {
             })
     }
 
-    const handleMakePremium = (user) => {
-        console.log(user);
-        axiosSecure.patch(`users/admin/premium/${user._id}`)
-            .then(res => {
-                console.log(res.data);
-                if (res.data.modifiedCount > 0) {
-                    refetch()
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: `${user.name} is now premium Customer`,
-                        showConfirmButton: false,
-                        timer: 1000
-                    });
-                }
-            })
-    }
+
 
 
     const handleDeleteUser = (user) => {

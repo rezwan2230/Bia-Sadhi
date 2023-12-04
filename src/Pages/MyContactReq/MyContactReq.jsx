@@ -70,7 +70,7 @@ const MyContactReq = () => {
 
                                             {
                                                 contactRequest.map((contactPartner) => <tr className=" mt-10" key={contactPartner._id}>
-                                                    <td className=" text-lg ">{contactPartner.name}</td>
+                                                    <td className=" text-lg ">{contactPartner.partnerName}</td>
 
                                                     <td className="text-lg text-center">
                                                         {contactPartner.biodataId}

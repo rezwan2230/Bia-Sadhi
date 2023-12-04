@@ -58,7 +58,6 @@ const AllBioCart = ({ biodata }) => {
                                 <p>Age : {age}</p>
                             </div>
                         </div>
-
                     </div>
 
 

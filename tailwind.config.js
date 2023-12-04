@@ -8,13 +8,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./node_modules/rizzui/dist/*.{js,ts,jsx,tsx}",
   ],
-  // content: [
-  //   "./src/**/*.{js,ts,jsx,tsx}",
-  //   "./node_modules/rizzui/dist/*.{js,ts,jsx,tsx}", // must use this line to compile and generate our RizzUI components style
-  // ],
-  // theme: {
-  //   extend: {},
-  // },
   theme: {
 		colors: {
 			transparent: 'transparent',
@@ -28,8 +21,8 @@ export default {
 			violet: colors.violet,
 			indigo: colors.indigo,
 			blue: colors.blue,
-			lightBlue: colors.lightBlue, // Only in Tailwind CSS <=v2.1
-			sky: colors.sky, // As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`  
+			lightBlue: colors.lightBlue, 
+			sky: colors.sky, 
 			cyan: colors.cyan,
 			teal: colors.teal,
 			emerald: colors.emerald,
@@ -46,11 +39,10 @@ export default {
 			stone: colors.stone,
 		}
   },
-  // plugins: [],
   plugins: [
+	require("kutty"),
     require("@tailwindcss/forms"),
     plugin(function ({ addVariant }) {
-      // required this to prevent any style on readOnly input elements
       addVariant("not-read-only", "&:not(:read-only)");
     }),
   ],
