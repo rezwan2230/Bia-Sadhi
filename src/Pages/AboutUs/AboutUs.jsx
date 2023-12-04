@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import Testimonial from "../../components/SocialLogin/Testimonial/Testimonial";
 
 const AboutUs = () => {
     return (
 
         <div>
+            <Helmet>
+                <title>Sweetiny | About Us</title>
+            </Helmet>
             <div>
                 <h2 className="text-4xl text-center pt-32">About Us</h2>
                 <hr className="w-32  mx-auto mt-3 border-1 border-black" />
@@ -15,7 +19,7 @@ const AboutUs = () => {
                             <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white -mt-20">Our Goal</h1>
 
                             <p className="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
-                            Searching for bridal attire online offers unparalleled convenience, diverse choices, and real-time reviews. Brides can effortlessly explore styles, connect with designers, and make informed decisions, all from the comfort of their homes.
+                                Searching for bridal attire online offers unparalleled convenience, diverse choices, and real-time reviews. Brides can effortlessly explore styles, connect with designers, and make informed decisions, all from the comfort of their homes.
                             </p>
                         </div>
 

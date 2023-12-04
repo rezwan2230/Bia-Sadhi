@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import AllBioCart from "../../components/SocialLogin/AllBioCart/AllBioCart";
 import { useLoaderData } from "react-router-dom";
 import '../../Pages/AllBioData/AllBioData.css'
+import { Helmet } from "react-helmet-async";
 
 const AllBioData = () => {
-    const { result, allCount} = useLoaderData()
+    const { result, allCount } = useLoaderData()
     const [bioDatas, setBioDatas] = useState(result)
 
     const [name, setName] = useState('')
@@ -30,14 +31,14 @@ const AllBioData = () => {
         url = `http://localhost:5000/biodataSearch?permanentDivision=${division}`
     }
 
-    if(gender==='male'){
+    if (gender === 'male') {
         url = 'http://localhost:5000/biodataSearch?male=male'
     }
-    if(gender==='female'){
+    if (gender === 'female') {
         url = 'http://localhost:5000/biodataSearch?female=female'
     }
 
-    
+
     if (name && division) {
         url = `http://localhost:5000/biodataSearch?name=${name}&permanentDivision=${division}`
     }
@@ -50,7 +51,7 @@ const AllBioData = () => {
             .then(data => {
                 console.log(data);
                 setBioDatas(data);
-            })  
+            })
     }, [url, name, division, gender])
 
 
@@ -76,6 +77,9 @@ const AllBioData = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Sweetiny | All BioData</title>
+            </Helmet>
             <div className="">
                 <h2 className="text-center font-semibold text-3xl py-10 font-serif pt-28"></h2>
 
@@ -84,9 +88,9 @@ const AllBioData = () => {
                     <div className="flex justify-center gap-8 items-center mx-auto">
 
                         <div>
-                            <button 
-                            onClick={() => setBioDatas(result)} 
-                            className="buttonn mt-8 font-semibold">All : {allCount}</button>
+                            <button
+                                onClick={() => setBioDatas(result)}
+                                className="buttonn mt-8 font-semibold">All : {allCount}</button>
                         </div>
 
                         <div>
@@ -99,7 +103,7 @@ const AllBioData = () => {
                         <div >
                             <label className=" ">Search by devision</label>
                             <select defaultValue='Division' name="status" id=""
-                                onChange={() => setDivision(event.target.value)} 
+                                onChange={() => setDivision(event.target.value)}
                                 className="block w-52 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required>
 
                                 <option className='text-sm font-semibold' value="dhaka">Dhaka</option>
@@ -115,7 +119,7 @@ const AllBioData = () => {
 
                         <div>
                             <select name="status" id=""
-                                onChange={() => setGender(event.target.value)} 
+                                onChange={() => setGender(event.target.value)}
                                 className="block w-52 px-4 py-2 mt-8 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required>
                                 <option className='text-sm font-semibold' value="male">Male</option>
                                 <option className='text-sm font-semibold' value="female">Female</option>
@@ -133,7 +137,7 @@ const AllBioData = () => {
             </div>
 
             <div className='text-center'>
-                
+
                 <button className="button mr-5" onClick={handlePreviousPage}>Prev</button>
                 {
                     pages.map(page => <button

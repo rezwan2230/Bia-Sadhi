@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyContactReq = () => {
     const { user } = useAuth()
@@ -45,73 +46,81 @@ const MyContactReq = () => {
     }
 
     return (
-        <div>
-            {
-                contactRequest.length > 0 ? <> <div className="h-[90vh]">
-                    <div>
+        <>
+            <Helmet>
+                <title>Sweetiny | Contact Request</title>
+            </Helmet>
+
+            <div>
+                {
+                    contactRequest.length > 0 ? <> <div className="h-[90vh]">
                         <div>
-                            <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-                                <h2 className="mb-4 text-2xl font-semibold leadi text-center underline">My Contact Request</h2>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full p-6 text-xs text-left whitespace-nowrap mt-10">
-                                        <thead className="w-full mb-20 ">
-                                            <tr className="text-xl text-center">
-                                                {/* <th className="pr-1"></th> */}
-                                                <th className="text-left">Name</th>
-                                                <th className="">BiodataId</th>
-                                                <th className="">Status</th>
-                                                <th className="">Mobile No.</th>
-                                                <th className="">Email</th>
-                                                <th className="">Delete</th>
-                                            </tr>
-                                        </thead>
+                            <div>
+                                <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
+                                    <h2 className="mb-4 text-2xl font-semibold leadi text-center underline">My Contact Request</h2>
+                                    <div className="overflow-x-auto">
+                                        <table className="w-full p-6 text-xs text-left whitespace-nowrap mt-10">
+                                            <thead className="w-full mb-20 ">
+                                                <tr className="text-xl text-center">
+                                                    {/* <th className="pr-1"></th> */}
+                                                    <th className="text-left">Name</th>
+                                                    <th className="">BiodataId</th>
+                                                    <th className="">Status</th>
+                                                    <th className="">Mobile No.</th>
+                                                    <th className="">Email</th>
+                                                    <th className="">Delete</th>
+                                                </tr>
+                                            </thead>
 
-                                        <tbody className=" dark:bg-gray-900 dark:border-gray-700">
+                                            <tbody className=" dark:bg-gray-900 dark:border-gray-700">
 
-                                            {
-                                                contactRequest.map((contactPartner) => <tr className=" mt-10" key={contactPartner._id}>
-                                                    <td className=" text-lg ">{contactPartner.partnerName}</td>
+                                                {
+                                                    contactRequest.map((contactPartner) => <tr className=" mt-10" key={contactPartner._id}>
+                                                        <td className=" text-lg ">{contactPartner.partnerName}</td>
 
-                                                    <td className="text-lg text-center">
-                                                        {contactPartner.biodataId}
-                                                    </td>
-                                                    <td className="text-lg text-center">
-                                                        {contactPartner.status}
-                                                    </td>
+                                                        <td className="text-lg text-center">
+                                                            {contactPartner.biodataId}
+                                                        </td>
+                                                        <td className="text-lg text-center">
+                                                            {contactPartner.status}
+                                                        </td>
 
-                                                    <td className="text-lg text-center">
-                                                        {contactPartner.status === 'pending' ? '-' : <div>{contactPartner.partnerMobileNo}</div>}
-                                                    </td>
-                                                    <td className="text-lg text-center">
-                                                    {contactPartner.status === 'pending' ? '-' : <div>{contactPartner.partnerEmail}</div>}
-                                                    </td>
-                                                    <td className="py-2 text-center">
-                                                        <button
-                                                            onClick={() => handleDeleteContact(contactPartner)}
-                                                            className=" bg-red-600 hover:bg-red-800 p-2 rounded-lg text-center">
-                                                            <RiDeleteBin2Line className="text-white text-2xl"></RiDeleteBin2Line>
-                                                        </button>
-                                                    </td>
-                                                </tr>)
-                                            }
+                                                        <td className="text-lg text-center">
+                                                            {contactPartner.status === 'pending' ? '-' : <div>{contactPartner.partnerMobileNo}</div>}
+                                                        </td>
+                                                        <td className="text-lg text-center">
+                                                            {contactPartner.status === 'pending' ? '-' : <div>{contactPartner.partnerEmail}</div>}
+                                                        </td>
+                                                        <td className="py-2 text-center">
+                                                            <button
+                                                                onClick={() => handleDeleteContact(contactPartner)}
+                                                                className=" bg-red-600 hover:bg-red-800 p-2 rounded-lg text-center">
+                                                                <RiDeleteBin2Line className="text-white text-2xl"></RiDeleteBin2Line>
+                                                            </button>
+                                                        </td>
+                                                    </tr>)
+                                                }
 
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
 
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div></>
+                    </div></>
 
-                    : <>
-                        <div className="flex justify-center items-center h-[90vh]">
-                            <h3 className="text-4xl -mt-20">You haven't added anyone yet</h3>
-                        </div>
-                    </>
-            }
-        </div>
+                        : <>
+                            <div className="flex justify-center items-center h-[90vh]">
+                                <h3 className="text-4xl -mt-20">You haven't added anyone yet</h3>
+                            </div>
+                        </>
+                }
+            </div>
+
+        </>
+
     );
 };
 

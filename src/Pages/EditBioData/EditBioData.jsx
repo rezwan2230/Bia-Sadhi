@@ -5,6 +5,7 @@ import useUserBiodata from "../../hooks/useUserBiodata";
 import { MdDelete, MdModeEdit } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 const EditBioData = () => {
     const [biodatas, refetch] = useUserBiodata()
@@ -40,13 +41,15 @@ const EditBioData = () => {
 
 
     return (
-        <div className="h-[100vh]">
+       <>
+        <Helmet>
+                <title>Sweetiny | Edit BioData</title>
+            </Helmet>
+       
+       <div className="h-[100vh]">
             <div>
                 <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-
                     <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-
-
                         {
                             biodatas.map(biodata => <div key={biodata._id}>
                                 <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
@@ -67,22 +70,18 @@ const EditBioData = () => {
                                                 </button>
                                             </Link>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>)
                         }
-
                     </div>
                 </div>
             </div>
-
-
             <div className="text-center">
                 <Link className="button text-center" to='/dashboard/createBioData'>Create Bio-Data</Link>
             </div>
-
         </div>
+       </>
     );
 };
 

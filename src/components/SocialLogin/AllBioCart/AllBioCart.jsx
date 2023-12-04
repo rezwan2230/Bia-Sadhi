@@ -36,9 +36,9 @@ const AllBioCart = ({ biodata }) => {
         <div>
             <div className="relative mx-5 lg:w-[360px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-5">
                 <img className="rounded-t-lg w-full h-72 z-1" src={photoURL} alt="" />
-                <div>
+                {/* <div>
                     <img className='h-12 w-12 absolute top-2 right-1 z-8' src={premium} alt="" />
-                </div>
+                </div> */}
                 <div>
                     <p className='font-semibold bg-slate-300 px-1 rounded-full absolute top-3 left-3 z-8 max-w-fit' >0{biodataID}</p>
 

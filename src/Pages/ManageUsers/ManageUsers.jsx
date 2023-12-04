@@ -4,6 +4,7 @@ import { FaUsers } from "react-icons/fa";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { MdWorkspacePremium } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
 
@@ -69,6 +70,9 @@ const ManageUsers = () => {
     return (
 
         <div>
+             <Helmet>
+                <title>Sweetiny | Manage Users</title>
+            </Helmet>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
                 <h2 className="mb-4 text-2xl font-semibold leadi text-center underline">Manage Users</h2>
                 <div className="overflow-x-auto">

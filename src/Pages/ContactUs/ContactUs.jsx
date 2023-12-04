@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
     const handleMakePremium = (e)=>{
@@ -5,6 +6,9 @@ const ContactUs = () => {
     }
     return (
         <div>
+             <Helmet>
+                <title>Sweetiny | Contact Us</title>
+            </Helmet>
 
             <section className=" dark:bg-gray-900 md:h-full mb-[750px] md:mb-[390px] lg:mb-20">
                 <div className="container px-6 pt-36 mx-auto">

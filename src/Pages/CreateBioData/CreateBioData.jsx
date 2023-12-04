@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useUserBiodata from "../../hooks/useUserBiodata";
+import { Helmet } from "react-helmet-async";
 
 
 const CreateBioData = () => {
@@ -56,6 +57,9 @@ const CreateBioData = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>Sweetiny | Create BioData</title>
+            </Helmet>
 
             <div>
                 <div className="flex flex-col md:flex-row h-[100vh]">
