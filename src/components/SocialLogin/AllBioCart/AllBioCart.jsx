@@ -3,7 +3,7 @@ import premium from '../../../assets/medal.png'
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
-
+import '../../../Pages/Shared/NavBar/NavBar.css'
 const AllBioCart = ({ biodata }) => {
     const {user} = useAuth()
     const { _id, name, age, dateofbirth, gender, height, weight, occupation, photoURL, FathersName, mothersName, race, ExpectedAge, ExpectedHeight, ExpectedWeight, presentDivision, permanentDivision, mobileNo, biodataID } = biodata;
@@ -74,13 +74,13 @@ const AllBioCart = ({ biodata }) => {
                     <div className='flex justify-center gap-5 py-2'>
                         <div className='flex'>
                             <button onClick={handleFavourite}
-                                className="inline-flex disabled items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                className="button inline-flex disabled items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 favourite
                             </button>
                         </div>
                         <div className='flex'>
                             <Link to={`/singleBioData/${_id}`} 
-                                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                className="button inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Read more
                                 <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -100,3 +100,5 @@ const AllBioCart = ({ biodata }) => {
 };
 
 export default AllBioCart;
+
+// inline-flex disabled items-center px-6 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800

@@ -16,6 +16,8 @@ const FavouriteBioData = () => {
         }
     })
 
+    console.log(favourites);
+
     const handleDeleteFavourite = (user) => {
         Swal.fire({
             title: "Are you sure?",
@@ -44,14 +46,14 @@ const FavouriteBioData = () => {
     }
 
     return (
-        <div className="h-[90vh]">
-            <h2>Favourites Biodata</h2>
 
+        <div>
+            {
+            favourites.length >0 ? <> <div className="h-[90vh]">
             <div>
-
                 <div>
                     <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-                        <h2 className="mb-4 text-2xl font-semibold leadi text-center underline">Manage Users</h2>
+                        <h2 className="mb-4 text-2xl font-semibold leadi text-center underline">Favourites Biodata</h2>
                         <div className="overflow-x-auto">
                             <table className="w-full p-6 text-xs text-left whitespace-nowrap mt-10">
                                 <thead className="w-full mb-20 ">
@@ -98,10 +100,17 @@ const FavouriteBioData = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
+        </div></> 
+
+            : <>
+            <div className="flex justify-center items-center h-[90vh]">
+                <h3 className="text-4xl -mt-20">You haven't added anything yet</h3>
+            </div>
+            </>
+        }
         </div>
+       
     );
 };
 

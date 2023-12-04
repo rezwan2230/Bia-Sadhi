@@ -63,10 +63,10 @@ const SingleBiodataPage = () => {
                                     </>
                                 }
                                 <div>
-                                    <Link to='/payment'><button className="button text-center mx-auto">Contact Request</button></Link>
+                                    <Link to={`/payment/${biodata._id}`}><button className="button text-center mx-auto">Contact Request</button></Link>
                                 </div>
 
-                            </div>
+                            </div>  
                         </div>
                         <div className="flex-1 mt-12">
                             <div className='ml-10'>

@@ -2,16 +2,21 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
-const CheckoutForm = () => {
+const CheckoutForm = ({bioData}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState('')
     const [clientSecret, setClientSecret] = useState('')
     const [transactionId, seTransactionId] = useState('')
-    const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
+    const navigate = useNavigate()
+    const axiosSecure = useAxiosSecure()
+
+    console.log(bioData.name);
 
     const totalPrice = 500;
 
@@ -69,34 +74,34 @@ const CheckoutForm = () => {
                 console.log('transaction Id : ', paymentIntent.id);
                 seTransactionId(paymentIntent.id)
 
-                //now save the payment in the database
-                // const payment = {
-                //     email: user.email,
-                //     price: totalPrice,
-                //     transactionId: paymentIntent.id,
-                //     data: new Date(), //utc date convert. use moment js to convert
-                //     cartIds: cart.map(item => item._id),
-                //     menuItemIds: cart.map(item => item.menuId),
-                //     status: 'pending'
-                // }
+                // now save the payment in the database
+                const payment = {
+                    name : bioData?.name,
+                    biodataId : bioData.biodataID,
+                    partnerMobileNo : bioData.mobileNo,
+                    partnerEmail : bioData.email,
+                    email: user.email,
+                    price: totalPrice,
+                    transactionId: paymentIntent.id,
+                    data: new Date(), 
+                    status: 'pending'
+                }
 
-                // const res = await axiosSecure.post('/payments', payment)
-                // console.log("Payment Save", res.data);
-                // refetch()
-                // if(res.data?.paymentResult?.insertedId){
-                //     Swal.fire({
-                //         position: "center",
-                //         icon: "success",
-                //         title: "Thank you for payment",
-                //         showConfirmButton: false,
-                //         timer: 1500
-                //       });
-                //     navigate('/dashboard/paymentHistory')
-                // }
+                const res = await axiosSecure.post('/payments', payment)
+                console.log("Payment Save", res.data);
+                if(res.data?.paymentResult?.insertedId){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Thank you for payment",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                    navigate('/dashboard/contactRequest')
+                }
             }
         }
     }
-
 
     return (
         <div>
@@ -128,8 +133,8 @@ const CheckoutForm = () => {
                     </button>
                 </div>
 
-                {/* <p className="text-red-500 text-center -mt-24 mb-[75px]">{error}</p>
-                {transactionId && <p className="text-green-600">Your transaction id : {transactionId}</p>} */}
+                <p className="text-red-500 text-center -mt-24 mb-[75px]">{error}</p>
+                {/* {transactionId && <p className="text-green-600">Your transaction id : {transactionId}</p>} */}
 
 
             </form>
