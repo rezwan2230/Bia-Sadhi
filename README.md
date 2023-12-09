@@ -1,8 +1,8 @@
-# React + Vite
+## People can find their partner through the Website.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- everyone can registration this site and published their biodata.
+- Every people can publish many biodata.
+- if any person chose anyone then if he paid for this theb he can contact with her.
+- Every person can edit their biodata.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Link : 
